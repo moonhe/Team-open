@@ -26,11 +26,13 @@
 		
 	 %>
 
+	
 	<nav
 		class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase"
 		id="mainNav">
 	<div class="container">
-		<a class="navbar-brand js-scroll-trigger" href="#">CBNU Major Books!</a>
+		<a class="navbar-brand js-scroll-trigger" href="/">CBNU Major
+			Books!</a>
 		<button
 			class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded"
 			type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -42,30 +44,30 @@
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item mx-0 mx-lg-1"><a
 					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-					href="jsp/BookSearch.jsp">전공책 찾아보기</a></li>
+					href="/jsp/BookSearch.jsp">SEARCH BOOKS</a></li>
 				<li class="nav-item mx-0 mx-lg-1"><a
 					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-					href="jsp/BookBuy.jsp">전공책 구매하기</a></li>
-					
-					
-					<%
-				if(userID == null) {			
-			%>
-			<li class="nav-item mx-0 mx-lg-1"><a
-					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-					href="/jsp/login.jsp">로그인</a></li>		
-			<%
-				} else {		
-			%>
-			<li class="nav-item mx-0 mx-lg-1"><a
-					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-					href="/jsp/logoutAction.jsp">로그아웃</a></li>
-			<%
-				}			
-			%>
+					href="/jsp/BookBuy.jsp">BUY BOOKS</a></li>
+
+
+				<%
+					if (userID == null) {
+				%>
 				<li class="nav-item mx-0 mx-lg-1"><a
 					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-					href="jsp/contactDev.jsp">개발자 문의</a></li>
+					href="/jsp/login.jsp">LOGIN</a></li>
+				<%
+					} else {
+				%>
+				<li class="nav-item mx-0 mx-lg-1"><a
+					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+					href="/jsp/logoutAction.jsp">LOGOUT</a></li>
+				<%
+					}
+				%>
+				<li class="nav-item mx-0 mx-lg-1"><a
+					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+					href="contactDev.jsp">CONTACT DEVELOPER</a></li>
 			</ul>
 		</div>
 	</div>

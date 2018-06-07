@@ -27,8 +27,9 @@
 		}
 		
 		UserDAO userDAO = new UserDAO();
+		//System.out.println(user.getUserID());
 		int result = userDAO.login(user.getUserID(), user.getUserPassword());
-		if (result == 1){
+		if (result == 1) {
 			session.setAttribute("userID", user.getUserID()); // 세션아이디 추가
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
