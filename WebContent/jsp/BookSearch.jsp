@@ -157,7 +157,7 @@ body {
 		<div class="col-md-11">
 			<img class="img-fluid mb-5 d-block mx-auto"
 				src="../bootstrap/img/notebook.png" alt="">
-			<h2 class="text-uppercase mb-0 text-center">SEARCH</h2>
+			<h2 class="text-uppercase mb-0 text-center">SEARCH BOOKS</h2>
 			<hr width="800px">
 			<div class="row">
 
@@ -172,7 +172,7 @@ body {
 							<input type="text" name="id" class="form-control"
 								placeholder="STUDENT ID" />
 						</div>
-				<!-- 		<div class="col-md-4">
+			 		<div class="col-md-4">
 							<div class="col-lg-7 col-sm-8">
 								<select class="form-control" id="exampleSelect1" name="people">
 									<option>2018 1학기</option>
@@ -181,7 +181,7 @@ body {
 									<option>7</option>
 								</select>
 							</div>
-						</div> -->
+						</div> 
 					</div>
 					<br>
 

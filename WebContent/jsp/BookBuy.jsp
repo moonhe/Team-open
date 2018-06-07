@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter"%>
 <%@ page import="bbs.BbsDAO"%>
 <%@ page import="bbs.Bbs"%>
@@ -12,6 +11,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<% request.setCharacterEncoding("UTF-8"); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,7 +31,7 @@
 <link href="../bootstrap/vendor/magnific-popup/magnific-popup.css"
 	rel="stylesheet" type="text/css">
 <link href="../bootstrap/css/freelancer.min.css" rel="stylesheet">
-<link href="../bootstrap/css/api.css" rel="stylesheet">
+<link href="../bootstrap/css/api.min.css" rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script
@@ -40,89 +40,112 @@
 
 
 <script>
- var totalPages; //전체 페이지수 저장용 전역변수
- var currentPageNum; //현재 페이지 번호 저장용 전역변수
+	var totalPages; //전체 페이지수 저장용 전역변수
+	var currentPageNum; //현재 페이지 번호 저장용 전역변수
 
- $(document).ready(function() {
-  //Ajax 요청 및 응답 처리
-  //Ajax -> 타 사이트 요청 불가
-  $(".btnSearch").click(function() {
-   ajax($("#keyword").val(), $(".maxResults:checked").val(), "1");
-   currentPageNum = "1";
-   currentPage(currentPageNum);
-  });  
+	$(document).ready(
+			function() {
+				//Ajax 요청 및 응답 처리
+				//Ajax -> 타 사이트 요청 불가
+				$(".btnSearch").click(
+						function() {
+							ajax($("#keyword").val(), $(".maxResults:checked")
+									.val(), "1");
+							currentPageNum = "1";
+							currentPage(currentPageNum);
+						});
 
-  //이전, 다음 버튼 -> 페이지 이동
-  $("#previous").click(function() {
-   var previousNum = parseInt(currentPageNum)-1;
-   ajax($("#keyword").val(), $(".maxResults:checked").val(), previousNum);   
-   currentPage(previousNum);
-  });
-  $("#next").click(function() {
-   var nextNum = parseInt(currentPageNum)+1;
-   ajax($("#keyword").val(), $(".maxResults:checked").val(), nextNum);
-   currentPage(nextNum);
-  });
- }); 
+				//이전, 다음 버튼 -> 페이지 이동
+				$("#previous").click(
+						function() {
+							var previousNum = parseInt(currentPageNum) - 1;
+							ajax($("#keyword").val(), $(".maxResults:checked")
+									.val(), previousNum);
+							currentPage(previousNum);
+						});
+				$("#next").click(
+						function() {
+							var nextNum = parseInt(currentPageNum) + 1;
+							ajax($("#keyword").val(), $(".maxResults:checked")
+									.val(), nextNum);
+							currentPage(nextNum);
+						});
+			});
 
- function currentPage(idx) {
-  $(".currentPage").text(idx);
-  currentPageNum = idx;  
+	function currentPage(idx) {
+		$(".currentPage").text(idx);
+		currentPageNum = idx;
 
-  //문제) 이전, 다음 버튼에 대한 활성, 비활성 처리
-  //이전 버튼은 현재 페이지가 1인 경우 비활성 처리
-  //다음 버튼은 현재 페이지가 전체 페이지수와 일치하는 경우 비활성 처리
-  //그외 나머지 경우는 이전, 다음 버튼 활성 처리
- } 
+		//문제) 이전, 다음 버튼에 대한 활성, 비활성 처리
+		//이전 버튼은 현재 페이지가 1인 경우 비활성 처리
+		//다음 버튼은 현재 페이지가 전체 페이지수와 일치하는 경우 비활성 처리
+		//그외 나머지 경우는 이전, 다음 버튼 활성 처리
+	}
 
- function ajax(keyword, maxResults, start) {
-  //$.get("BookAPIAjax.jsp?keyword="+keyword+"&maxResults="+maxResults, function(data) {
-  $.post("BookAPIAjax.jsp", {keyword:keyword, maxResults:maxResults, start:start}, function(data) {
-   //XML 응답 확인
-   console.log(data);
-   var txt = "";
+	function ajax(keyword, maxResults, start) {
+		//$.get("BookAPIAjax.jsp?keyword="+keyword+"&maxResults="+maxResults, function(data) {
+		$
+				.post(
+						"BookAPIAjax.jsp",
+						{
+							keyword : keyword,
+							maxResults : maxResults,
+							start : start
+						},
+						function(data) {
+							//XML 응답 확인
+							console.log(data);
+							var txt = "";
 
-   //XML 객체의 특정 엘리먼트 탐색
-   var totalResults = $(data).find("bookAPI > totalResults").text();
-   var bookInfoList = $(data).find("bookAPI > bookInfo");
-   var bookInfoCount = bookInfoList.length;
-   
-   for (var a = 0; a < bookInfoCount; ++a) {
-    var bookInfo = $(data).find("bookAPI > bookInfo:eq(" + a + ")");
-    var coverSmallUrl = $(bookInfo).find("coverSmallUrl").text();
-    var title = $(bookInfo).find("title").text();
-    var publisher = $(bookInfo).find("publisher").text();
-    var author = $(bookInfo).find("author").text();
-    var priceStandard = $(bookInfo).find("priceStandard").text();
-    var isbn = $(bookInfo).find("isbn").text();
-    var link = $(bookInfo).find("link").text();    
+							//XML 객체의 특정 엘리먼트 탐색
+							var totalResults = $(data).find(
+									"bookAPI > totalResults").text();
+							var bookInfoList = $(data).find(
+									"bookAPI > bookInfo");
+							var bookInfoCount = bookInfoList.length;
 
-    txt += "<tr>";
-    txt += "<td>" + (a+1) + "</td>";
-    txt += "<td><img src=\"" + coverSmallUrl + "\"></td>";
-    txt += "<td>title:<label>" + title + "</label><br>";
-    txt += "publisher" + publisher + "<br>";
-    txt += "author:" + author + "<br>";
-    txt += "price" + priceStandard + "<br>";
-    txt += "<td><a href=\"" + link + "\" target=\"_blank\" class=\"btn btn-default btn-xs\" role=\"button\">인터파크 상세보기</a></td>";
-    txt += "</tr>";
-   }
+							for (var a = 0; a < bookInfoCount; ++a) {
+								var bookInfo = $(data).find(
+										"bookAPI > bookInfo:eq(" + a + ")");
+								var coverSmallUrl = $(bookInfo).find(
+										"coverSmallUrl").text();
+								var title = $(bookInfo).find("title").text();
+								var publisher = $(bookInfo).find("publisher")
+										.text();
+								var author = $(bookInfo).find("author").text();
+								var priceStandard = $(bookInfo).find(
+										"priceStandard").text();
+								var isbn = $(bookInfo).find("isbn").text();
+								var link = $(bookInfo).find("link").text();
 
-   if (totalResults == "0") {
-    txt = "<tr><td colspan=\"4\"><h3>검색 결과가 없습니다.</h3></td></tr>";
-   }
+								txt += "<tr>";
+								txt += "<td>" + (a + 1) + "</td>";
+								txt += "<td><img src=\"" + coverSmallUrl + "\"></td>";
+								txt += "<td>title:<label>" + title
+										+ "</label><br>";
+								txt += "publisher" + publisher + "<br>";
+								txt += "author:" + author + "<br>";
+								txt += "price" + priceStandard + "<br>";
+								txt += "<td><a href=\"" + link + "\" target=\"_blank\" class=\"btn btn-default btn-xs\" role=\"button\">인터파크 상세보기</a></td>";
+								txt += "</tr>";
+							}
 
-   $(".bookAPI > tbody").html(txt);
-   $(".totalResults").text(totalResults);   
+							if (totalResults == "0") {
+								txt = "<tr><td colspan=\"4\"><h3>검색 결과가 없습니다.</h3></td></tr>";
+							}
 
-   //전체 페이지수 출력
-   //전체 페이지수 계산 -> 올림(전체 로우/maxResults)
-   //9.1 => 10
-   //9.9 => 10
-   totalPages = Math.ceil(totalResults/$(".maxResults:checked").val());
-   $(".totalPages").text(totalPages);
-  });
- }
+							$(".bookAPI > tbody").html(txt);
+							$(".totalResults").text(totalResults);
+
+							//전체 페이지수 출력
+							//전체 페이지수 계산 -> 올림(전체 로우/maxResults)
+							//9.1 => 10
+							//9.9 => 10
+							totalPages = Math.ceil(totalResults
+									/ $(".maxResults:checked").val());
+							$(".totalPages").text(totalPages);
+						});
+	}
 </script>
 
 
@@ -137,7 +160,7 @@ h2 {
 
 h6 {
 	display: block;
-	font-size: 1.0	em;
+	font-size: 1.0 em;
 	margin-top: 0.3em;
 	margin-bottom: 0.3em;
 	margin-left: 0;
@@ -170,10 +193,10 @@ body {
 			userID = (String) session.getAttribute("userID");
 		}
 		int pageNumber = 1; // 기본 페이지는 1페이지
-		if (request.getParameter("pageNumber") != null){
+		if (request.getParameter("pageNumber") != null) {
 			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 		}
-	 %>
+	%>
 
 
 	<!-- Navigation -->
@@ -223,20 +246,21 @@ body {
 		</div>
 	</div>
 	</nav>
-	<br><br>
-	<br><br><br><br><br><br>
+	<br>
+	<br>	<br>
+	<br>	<br>
+	<br>	<br>
+	<br>
 
 	<div class="col-md-11">
 		<img class="img-fluid mb-5 d-block mx-auto"
 			src="../bootstrap/img/cart-2.png" alt="">
-		<h2 class="text-uppercase mb-0 text-center">BUY</h2>
+		<h2 class="text-uppercase mb-0 text-center">BUY BOOKS</h2>
 		<hr width="800px">
 		<div class="row"></div>
 	</div>
 
 
-	<br>
-	<br>
 	<br>
 	<br>
 	<div class="container">
@@ -256,11 +280,11 @@ body {
 						</button>
 						<label class="radio-inline"><input type="radio"
 							class="maxResults" name="maxResults" value="10" checked="checked"><br>
-						<br>10개씩 보기</label> <label class="radio-inline"><input
+							<br>10개씩 보기</label> <label class="radio-inline"><input
 							type="radio" class="maxResults" name="maxResults" value="20"><br>
-						<br>20개씩 보기</label> <label class="radio-inline"><input
+							<br>20개씩 보기</label> <label class="radio-inline"><input
 							type="radio" class="maxResults" name="maxResults" value="30"><br>
-						<br>30개씩 보기</label>
+							<br>30개씩 보기</label>
 					</form>
 				</div>
 			</div>
@@ -292,9 +316,8 @@ body {
 								<td>1</td>
 								<td><img src="../bootstrap/img/interpark_logo.png"></td>
 								<td>title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>책제목</label>
-								<br>publisher&nbsp;&nbsp;출판사
-								<br>author&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;저자
-								<br>price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정가
+									<br>publisher&nbsp;&nbsp;출판사 <br>author&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;저자
+									<br>price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정가
 								</td>
 								<td><a
 									href="http://book.interpark.com/bookPark/html/book.html"
@@ -312,6 +335,7 @@ body {
 					</ul>
 				</div>
 			</div>
+
 		</div>
 	</div>
 

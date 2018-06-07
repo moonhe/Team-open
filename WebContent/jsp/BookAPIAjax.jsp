@@ -12,6 +12,7 @@
  String maxResults = request.getParameter("maxResults");
 
  String start = request.getParameter("start");
+ keyword = keyword.replaceAll(" ","");
 
 
 

@@ -25,28 +25,34 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="../index.jsp">CBNU Major Books!</a>
-        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="BookSearch.jsp">전공책 찾아보기</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="BookBuy.jsp">전공책 구매하기</a>
-               </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/jsp/login.jsp">로그인</a>		
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="contactDev.jsp">개발자 문의</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+		<a class="navbar-brand js-scroll-trigger" href="/">CBNU Major
+			Books!</a>
+		<button
+			class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded"
+			type="button" data-toggle="collapse" data-target="#navbarResponsive"
+			aria-controls="navbarResponsive" aria-expanded="false"
+			aria-label="Toggle navigation">
+			Menu <i class="fa fa-bars"></i>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item mx-0 mx-lg-1"><a
+					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+					href="/jsp/BookSearch.jsp">SEARCH BOOKS</a></li>
+				<li class="nav-item mx-0 mx-lg-1"><a
+					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+					href="#">BUY BOOKS</a></li>
+
+				<li class="nav-item mx-0 mx-lg-1"><a
+					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+					href="/jsp/login.jsp">LOGIN</a></li>
+					
+				<li class="nav-item mx-0 mx-lg-1"><a
+					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+					href="contactDev.jsp">CONTACT DEVELOPER</a></li>
+			</ul>
+		</div>
+	</div>
     </nav>
     
     <br><br><br><br><br><br>
