@@ -29,22 +29,26 @@
 	rel="stylesheet" type="text/css">
 <link href="../bootstrap/vendor/magnific-popup/magnific-popup.css"
 	rel="stylesheet" type="text/css">
-<link href="../bootstrap/css/freelancer.min.css" rel="stylesheet">
+<link href="../bootstrap/css/freelancer.css" rel="stylesheet">
+<link href="../bootstrap/css/api.css" rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 
 <style>
-h6 {
+h2 {
 	display: block;
-	font-size: 1em;
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
+	font-size: 30em;
 	margin-left: 0;
 	margin-right: 0;
 	font-weight: bold;
 }
 
-h5 {
+h6 {
 	display: block;
-	font-size: 1.4em;
+	font-size: 1.0 em;
 	margin-top: 0.3em;
 	margin-bottom: 0.3em;
 	margin-left: 0;
@@ -54,11 +58,16 @@ h5 {
 </style>
 
 
+
+
 <script>
 	function resizeIframe(obj) {
 		obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
 	}
 </script>
+
+
+
 
 
 </head>
@@ -106,7 +115,8 @@ body {
 					href="#">SEARCH BOOKS</a></li>
 				<li class="nav-item mx-0 mx-lg-1"><a
 					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-					href="BookBuy.jsp">BUY BOOKS</a></li>
+					href="BookBuy.jsp">PURCHASE BOOKS</a></li>
+
 
 
 				<%
@@ -150,53 +160,55 @@ body {
 
 
 
+
 	<br>
 	<form method="post" name='BookSearch' action="BookSearchAction.jsp">
-		<section class="portfolio bg-third ">
-
-		<div class="col-md-11">
+		<section class="portfolio bg-third">
+		<div class="col-md-12">
 			<img class="img-fluid mb-5 d-block mx-auto"
 				src="../bootstrap/img/notebook.png" alt="">
 			<h2 class="text-uppercase mb-0 text-center">SEARCH BOOKS</h2>
 			<hr width="800px">
 			<div class="row">
-
 				<div class="col-md-2"></div>
 				<div class="col-md-10">
 
 					<div class="row">
+						<div class="col-md-3">
+						</div>
 						<div class="col-md-1">
 							<h5>ID</h5>
 						</div>
-						<div class="col-md-5">
+						<div class="col-md-4">
 							<input type="text" name="id" class="form-control"
 								placeholder="STUDENT ID" />
 						</div>
-			 		<div class="col-md-4">
-							<div class="col-lg-7 col-sm-8">
-								<select class="form-control" id="exampleSelect1" name="people">
-									<option>2018 1학기</option>
-									<option>2017 2학기</option>
-									<option>6</option>
-									<option>7</option>
+						<div class="col-md-3">
+								<select class="form-control btn-block" id="exampleSelect1" name="semester">
+									<option>1st semester of 2018</option>
+									<option>Winter semester of 2017</option>
+									<option>2st semester of 2017</option>
+									<option>Summer semester of 2017</option>
+									<option>1st semester of 2017</option>
 								</select>
-							</div>
-						</div> 
+						</div>
 					</div>
 					<br>
 
 
 					<div class="row">
+					<div class="col-md-3">
+						</div>
 						<div class="col-md-1 col-sm">
 							<h5>PWD</h5>
 						</div>
-						<div class="col-md-5">
+						<div class="col-md-4">
 							<input type="password" name="pwd" class="form-control"
 								placeholder="**********" />
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-3">
 							<input type="button" class="btn btn-primary btn-block"
-								value="send" onclick="send();" />
+								value="Search" onclick="send();" />
 						</div>
 
 
@@ -205,7 +217,9 @@ body {
 
 					<br>
 					<div class="row">
-						<div class="col-md-10" style='width: 100%' height="300">
+						<div class="col-md-3">
+						</div>
+						<div class="col-md-8" style='width: 100%' height="300">
 							<iframe id="iframe" src="/jsp/booksImage.jsp" style='width: 100%'
 								frameborder="0" scrolling="yes" onload="resizeIframe(this)"></iframe>
 						</div>
@@ -219,9 +233,10 @@ body {
 
 
 
+
 	<div class="copyright py-4 text-center text-white">
 		<div class="container">
-			<small>Copyright &copy; Your Website 2018</small>
+			<small>Copyright &copy; CBNU MAJOR BOOKS 2018</small>
 		</div>
 	</div>
 

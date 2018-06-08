@@ -15,8 +15,9 @@ public class chromeDriver {
 
 	public static String driverPath = "/Users/moonhe/Desktop/chromedriver_mac64/";
 	public static WebDriver driver;
-	public String Semester;
+	private String Semester;
 	public String Books[];
+	public String findBook;
 	public String course[];
 	private String id;
 	private String pwd;
@@ -38,11 +39,33 @@ public class chromeDriver {
 		this.pwd = pwd;
 	}
 
-	public int searchBook(String ID, String PWD) {
+	public String getSemester() {
+		return Semester;
+	}
 
+	public void setSemester(String Semester) {
+		this.Semester = Semester;
+	}
+
+	public int searchBook(String ID, String PWD, String semester) {
+
+		if (semester.equals("1st semester of 2018")) {
+			setSemester("20181");
+		} else if (semester.equals("2st semester of 2017")) {
+			setSemester("20173");
+		} else if (semester.equals("1st semester of 2017")) {
+			setSemester("20171");
+		}else if (semester.equals("Winter semester of 2017")) {
+			setSemester("20174");
+		}else if (semester.equals("Summer semester of 2017")) {
+			setSemester("20172");
+		}
+
+
+		System.out.println(getSemester());
 		System.out.println("launching chrome browser");
 		System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
-		//
+		
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("headless");
 		driver = new ChromeDriver(options);
@@ -53,8 +76,7 @@ public class chromeDriver {
 		driver.findElement(By.name("password")).sendKeys(PWD);
 		driver.findElement(By.name("login")).submit();
 
-		Semester = "2018 1학기";
-		courseList = driver.findElements(By.partialLinkText("20181"));
+		courseList = driver.findElements(By.partialLinkText(getSemester()));
 		course = new String[courseList.size()];
 		Books = new String[courseList.size()];
 		for (int i = 0; i < courseList.size(); i++) {
@@ -65,13 +87,9 @@ public class chromeDriver {
 		for (int i = 0; i < courseList.size(); i++) {
 			driver.findElement(By.partialLinkText(course[i])).click();
 			driver.findElement(By.partialLinkText("강의계획서")).click();
-			List<WebElement> majorBooks = driver.findElements(By.tagName("span"));
-
-			if (majorBooks.get(69).getText().substring(0, 1).equals("1")) {
-				Books[i] = majorBooks.get(69).getText();
-			} else {
-				Books[i] = majorBooks.get(70).getText();
-			}
+			findBook = driver.findElement(By.xpath("//*[@id=\'containerdiv\']/table[15]/tbody/tr[1]/td/span"))
+					.getText();
+			Books[i] = findBook;
 			driver.navigate().back();
 			driver.findElement(By.partialLinkText("코스")).click();
 		}

@@ -25,11 +25,21 @@
 	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
 	rel="stylesheet" type="text/css">
 <link href="../bootstrap/vendor/magnific-popup/magnific-popup.css"
-	rel="stylesheet" type="text/css">
-<link href="../bootstrap/css/freelancer.min.css" rel="stylesheet">
+	rel="stylesheet" type="text/css">s
+<link href="../bootstrap/css/freelancer.css" rel="stylesheet">
+<link href="../bootstrap/css/api.css" rel="stylesheet">
+
 
 </head>
 <body id="page-top">
+
+
+	<style>
+body {
+	background-color: #f4fff4;
+}
+</style>
+
 
 	<%
 		String userID = null;
@@ -65,7 +75,7 @@
 					href="/jsp/BookSearch.jsp">SEARCH BOOKS</a></li>
 				<li class="nav-item mx-0 mx-lg-1"><a
 					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-					href="#">BUY BOOKS</a></li>
+					href="/jsp/BookBuy.jsp">PURCHASE BOOKS</a></li>
 
 
 				<%
@@ -120,10 +130,10 @@ a, a:hover {
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>작성일</th>
+							<th>No</th>
+							<th>Title</th>
+							<th>Author</th>
+							<th>Date</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -155,7 +165,7 @@ a, a:hover {
 					%>
 			<div class="col-lg-3">
 				<a href="contactDev.jsp?pageNumber=<%=pageNumber - 1%>"
-					class="btn btn-success btn-block btn-arrow-left">이전</a>
+					class="btn btn-success btn-block btn-arrow-left">PREV</a>
 			</div>
 			<%
 					}
@@ -164,7 +174,7 @@ a, a:hover {
 				
 			<div class="col-lg-3">
 				<a href="contactDev.jsp?pageNumber=<%=pageNumber + 1%>"
-					class="btn btn-success btn-block btn-arrow-right">다음</a>
+					class="btn btn-success btn-block btn-arrow-right">NEXT</a>
 			</div>
 			<%
 					}
@@ -172,11 +182,17 @@ a, a:hover {
 			<div class="col-lg-3"></div>
 		</div>
 		<br>
-		<a href="write.jsp" class="btn btn-secondary btn-block pull-right">글쓰기</a>
+		<a href="write.jsp" class="btn btn-secondary btn-block pull-right">WRITE</a>
 	</div>
 	</div>
+<br><br><br>
 
 
+	<div class="copyright py-4 text-center text-white">
+		<div class="container">
+			<small>Copyright &copy; CBNU MAJOR BOOKS 2018</small>
+		</div>
+	</div>
 
 
 

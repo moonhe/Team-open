@@ -18,10 +18,15 @@
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 <link href="../bootstrap/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
 <link href="../bootstrap/css/freelancer.min.css" rel="stylesheet">
+<link href="../bootstrap/css/api.css" rel="stylesheet">
 
 </head>
  <body id="page-top">
-
+	<style>
+body {
+	background-color: #f4fff4;
+}
+</style>
 
 
 	<%
@@ -59,46 +64,72 @@
 
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="../index.jsp">CBNU Major Books!</a>
-        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#">전공책 찾아보기</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="BookBuy.jsp">전공책 구매하기</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="contactDev.jsp">개발자 문의</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <nav
+		class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase"
+		id="mainNav">
+	<div class="container">
+		<a class="navbar-brand js-scroll-trigger" href="/">CBNU Major
+			Books!</a>
+		<button
+			class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded"
+			type="button" data-toggle="collapse" data-target="#navbarResponsive"
+			aria-controls="navbarResponsive" aria-expanded="false"
+			aria-label="Toggle navigation">
+			Menu <i class="fa fa-bars"></i>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item mx-0 mx-lg-1"><a
+					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+					href="#">SEARCH BOOKS</a></li>
+				<li class="nav-item mx-0 mx-lg-1"><a
+					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+					href="BookBuy.jsp">PURCHASE BOOKS</a></li>
+
+
+
+				<%
+					if (userID == null) {
+				%>
+				<li class="nav-item mx-0 mx-lg-1"><a
+					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+					href="/jsp/login.jsp">LOGIN</a></li>
+				<%
+					} else {
+				%>
+				<li class="nav-item mx-0 mx-lg-1"><a
+					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+					href="/jsp/logoutAction.jsp">LOGOUT</a></li>
+				<%
+					}
+				%>
+				<li class="nav-item mx-0 mx-lg-1"><a
+					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+					href="contactDev.jsp">CONTACT DEVELOPER</a></li>
+			</ul>
+		</div>
+	</div>
+	</nav>
     
-    <br><br><br><br><br>
+    <br>
     
     
 
-
-<style>
+  
+  <style>
 .table {text-align:center; border: 1px solid #ddd} 
 .table th{background-color: #eee; text-align: center;}
 .table textarea{height: 350px;}
 </style>		
+	
 	<div class="container">
 		<div class="row">
+		<div class="col-md-12">
 			<form method="post" action="updateAction.jsp?bbsID=<%= bbsID %>">
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th colspan="2">게시판 글 수정 양식</th>
+							<th colspan="2">UPDATE</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -110,10 +141,19 @@
 						</tr>
 					</tbody>
 				</table>
-				<input type="submit" class="btn btn-primary pull-right" value="글수정" />
+				<input type="submit" class="btn btn-primary btn-block pull-right" value="Update" />
 			</form>
 		</div>
+		</div>
 	</div>	
+	<br><br><br><br><br><br><br>
+	
+	<div class="copyright py-4 text-center text-white">
+		<div class="container">
+			<small>Copyright &copy; CBNU MAJOR BOOKS 2018</small>
+		</div>
+	</div>
+	
 </body>
 </html>
 

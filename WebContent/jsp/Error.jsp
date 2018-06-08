@@ -58,8 +58,26 @@ h5 {
 <body id="page-top">
 
 
-<h5> 일치하는 정보가 없습니다! </h5>
-
+	<table class="table table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th scope="col" width="13%"><h6>SEMESTER</h6></th>
+				<th scope="col" width="23%"><h5>
+						<center>LECTURE</center>
+					</h5></th>
+				<th scope="col" width="64%"><h5>
+						<center>BOOKS</center>
+					</h5></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td colspan="3"><center>
+						<h6>일치하는 계정이 없습니다 학번/비밀번호를 확인해 주세요</h6>
+					</center></td>
+			</tr>
+		</tbody>
+	</table>
 
 
 

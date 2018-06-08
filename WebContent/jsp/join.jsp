@@ -1,55 +1,80 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+ pageEncoding="UTF-8"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/bootstrap.css" />
-<title>JSP 게시판  웹사이트</title>
-<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-<script src="js/bootstrap.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>ChungBuk University Major Books!</title>
+<link href="../bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+<link href="../bootstrap/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+<link href="../bootstrap/css/freelancer.css" rel="stylesheet">
+<link href="../bootstrap/css/api.css" rel="stylesheet">
+
 </head>
-<body>
-	<nav class="navbar navbar-default">
-		<div class="navbar-header">
-			<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				<span class="icon-bar"></span>			
-				<span class="icon-bar"></span>			
-				<span class="icon-bar"></span>			
-			</button>
-			<a href="main.jsp" class="navbar-brand">JSP 게시판 웹 사이트</a>
-		</div>
-		<div class="collapse navbar-collapse" id="#bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li><a href="main.jsp">메인</a></li>
-				<li><a href="bbs.jsp">게시판</a></li>
+ <body id="page-top">
+
+	<style>
+body {
+	background-color: #f4fff4;
+}
+</style>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+      <div class="container">
+		<a class="navbar-brand js-scroll-trigger" href="/">CBNU Major
+			Books!</a>
+		<button
+			class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded"
+			type="button" data-toggle="collapse" data-target="#navbarResponsive"
+			aria-controls="navbarResponsive" aria-expanded="false"
+			aria-label="Toggle navigation">
+			Menu <i class="fa fa-bars"></i>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item mx-0 mx-lg-1"><a
+					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+					href="/jsp/BookSearch.jsp">SEARCH BOOKS</a></li>
+				<li class="nav-item mx-0 mx-lg-1"><a
+					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+					href="/jsp/BookBuy.jsp">PURCHASE BOOKS</a></li>
+
+				<li class="nav-item mx-0 mx-lg-1"><a
+					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+					href="/jsp/login.jsp">LOGIN</a></li>
+					
+				<li class="nav-item mx-0 mx-lg-1"><a
+					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+					href="contactDev.jsp">CONTACT DEVELOPER</a></li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">접속하기<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="login.jsp">로그인</a></li>
-						<li class="active"><a href="join.jsp">회원가입</a></li>
-					</ul>
-				</li>
-			</ul>
 		</div>
-	</nav>
+	</div>
+    </nav>
+    
+    <br><br><br><br><br><br>	
 	<div class="container">
 		<div class="col lg-4"></div>
 		<div class="col lg-4">
 			<div class="jumbotron" style="padding-top:20px">
 				<form method="post" action="joinAction.jsp">
-					<h3 style="text-align:center">회원가입 화면</h3>
+					<h3 style="text-align:center">SIGN UP</h3>
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20"/>
+						<input type="text" class="form-control" placeholder="ID" name="userID" maxlength="20"/>
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" placeholder="비밀번호" name="userPassword" maxlength="20" />
+						<input type="password" class="form-control" placeholder="PASSWORD" name="userPassword" maxlength="20" />
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="이름" name="userName" maxlength="20" />
+						<input type="text" class="form-control" placeholder="NAME" name="userName" maxlength="20" />
 					</div>
 					<div class="form-group" style="text-align:center">
 						<div class="btn-group" data-toggle="buttons">
@@ -62,13 +87,23 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<input type="email" class="form-control" placeholder="이메일" name="userEmail" maxlength="50" />
+						<input type="email" class="form-control" placeholder="E-MAIL" name="userEmail" maxlength="50" />
 					</div>
-					<input type="submit" class="btn btn-primary form-control" value="회원가입" />	
+					<input type="submit" class="btn btn-primary form-control" value="SIGN UP" />	
 				</form>
+						<br>
+					Are you already a member? <a href="login.jsp">SIGN UP</a>
 			</div>
 		</div>
 	</div>
+	
+	
+	<div class="copyright py-4 text-center text-white">
+		<div class="container">
+			<small>Copyright &copy; CBNU MAJOR BOOKS 2018</small>
+		</div>
+	</div>
+	
 </body>
 </html>
 

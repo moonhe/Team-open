@@ -6,13 +6,14 @@
  //데이터 수신->keyword
 
  request.setCharacterEncoding("UTF-8");
-
  String keyword = request.getParameter("keyword");
+ System.out.println(keyword);
 
  String maxResults = request.getParameter("maxResults");
 
  String start = request.getParameter("start");
- keyword = keyword.replaceAll(" ","");
+ keyword = keyword.replaceAll(" ",""); 
+
 
 
 

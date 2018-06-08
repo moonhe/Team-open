@@ -30,12 +30,14 @@
 	rel="stylesheet" type="text/css">
 <link href="../bootstrap/vendor/magnific-popup/magnific-popup.css"
 	rel="stylesheet" type="text/css">
-<link href="../bootstrap/css/freelancer.min.css" rel="stylesheet">
-<link href="../bootstrap/css/api.min.css" rel="stylesheet">
+<link href="../bootstrap/css/freelancer.css" rel="stylesheet">
+<link href="../bootstrap/css/api.css" rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
 
 
 
@@ -152,7 +154,7 @@
 <style>
 h2 {
 	display: block;
-	font-size: 3em;
+	font-size: 2.2em;
 	margin-left: 0;
 	margin-right: 0;
 	font-weight: bold;
@@ -221,7 +223,7 @@ body {
 					href="/jsp/BookSearch.jsp">SEARCH BOOKS</a></li>
 				<li class="nav-item mx-0 mx-lg-1"><a
 					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-					href="#">BUY BOOKS</a></li>
+					href="#">PURCHASE BOOKS</a></li>
 
 
 				<%
@@ -250,12 +252,11 @@ body {
 	<br>	<br>
 	<br>	<br>
 	<br>	<br>
-	<br>
 
-	<div class="col-md-11">
+	<div class="col-md-12">
 		<img class="img-fluid mb-5 d-block mx-auto"
 			src="../bootstrap/img/cart-2.png" alt="">
-		<h2 class="text-uppercase mb-0 text-center">BUY BOOKS</h2>
+		<h2 class="text-uppercase mb-0 text-center">PURCHASE BOOKS</h2>
 		<hr width="800px">
 		<div class="row"></div>
 	</div>
@@ -338,6 +339,16 @@ body {
 
 		</div>
 	</div>
+
+
+
+	<div class="copyright py-4 text-center text-white">
+		<div class="container">
+			<small>Copyright &copy; CBNU MAJOR BOOKS 2018</small>
+		</div>
+	</div>
+
+
 
 
 	<script src="../bootstrap/vendor/jquery/jquery.min.js"></script>

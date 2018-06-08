@@ -15,12 +15,17 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 <link href="../bootstrap/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
-<link href="../bootstrap/css/freelancer.min.css" rel="stylesheet">
+<link href="../bootstrap/css/freelancer.css" rel="stylesheet">
+<link href="../bootstrap/css/api.css" rel="stylesheet">
 
 </head>
  <body id="page-top">
- 
 
+	<style>
+body {
+	background-color: #f4fff4;
+}
+</style>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
@@ -41,7 +46,7 @@
 					href="/jsp/BookSearch.jsp">SEARCH BOOKS</a></li>
 				<li class="nav-item mx-0 mx-lg-1"><a
 					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-					href="#">BUY BOOKS</a></li>
+					href="/jsp/BookBuy.jsp">PURCHASE BOOKS</a></li>
 
 				<li class="nav-item mx-0 mx-lg-1"><a
 					class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
@@ -63,20 +68,29 @@
 		<div class="col lg-4">
 			<div class="jumbotron" style="padding-top:20px">
 				<form method="post" action="loginAction.jsp">
-					<h3 style="text-align:center">로그인화면</h3>
+					<h3 style="text-align:center">SIGN IN</h3>
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20"/>
+						<input type="text" class="form-control" placeholder="ID" name="userID" maxlength="20"/>
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" placeholder="비밀번호" name="userPassword" maxlength="20" />
+						<input type="password" class="form-control" placeholder="PASSWORD" name="userPassword" maxlength="20" />
 					</div>
-					<input type="submit" class="btn btn-primary form-control" value="로그인" />	
+					<input type="submit" class="btn btn-primary form-control" value="LOGIN" />	
 					
 				</form>
 				<br>
-					아직 회원이니신가요?    <a href="join.jsp">회원가입</a>
+					Aren't you a member yet? <a href="join.jsp">SIGN UP</a>
 			</div>
 		</div>
 	</div>
+	
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	
+	<div class="copyright py-4 text-center text-white">
+		<div class="container">
+			<small>Copyright &copy; CBNU MAJOR BOOKS 2018</small>
+		</div>
+	</div>
+	
 </body>
 </html>

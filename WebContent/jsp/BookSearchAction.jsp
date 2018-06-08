@@ -68,16 +68,19 @@ body {
 	<%
 	String id= crawl.getId();
 	String pwd= crawl.getPwd();
+	String semester = request.getParameter("semester");
+	
+	System.out.println(semester);
 	%>
 
-	<%crawler.searchBook(id,pwd); %>
+	<%crawler.searchBook(id,pwd,semester); %>
 
 	<table class="table table-bordered" width="100%">
 		<thead>
 			<tr>
-				<th scope="col" width="20%"><h6>SEMESTER</h6></th>
-				<th scope="col" width="20%"><h5><center>LECTURE</center></h5></th>
-				<th scope="col" width="60%"><h5><center>BOOKS</center></h5></th>
+				<th scope="col" width="13%"><h6>SEMESTER</h6></th>
+				<th scope="col" width="23%"><h5><center>LECTURE</center></h5></th>
+				<th scope="col" width="64%"><h5><center>BOOKS</center></h5></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -93,8 +96,8 @@ body {
 		for(int i = 0 ; i < crawler.courseList.size() ; i ++){
 		%>
 			<tr>
-				<th scope="row"><%=crawler.Semester%></th>
-				<td><%=crawler.course[i]%></td>
+				<th scope="row"><center><%=crawler.getSemester()%></center></th>
+				<td><center><%=crawler.course[i]%></center></td>
 				<td><%=crawler.Books[i]%></td>
 			</tr>
 			
